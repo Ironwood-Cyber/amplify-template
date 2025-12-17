@@ -167,7 +167,7 @@ registerSingleton(IOpenerService, OpenerService, InstantiationType.Delayed);
 //#region --- workbench contributions
 
 // Telemetry
-import 'vs/workbench/contrib/telemetry/browser/telemetry.contribution';
+// import 'vs/workbench/contrib/telemetry/browser/telemetry.contribution';
 
 // Preferences
 import 'vs/workbench/contrib/preferences/browser/preferences.contribution';
@@ -215,25 +215,25 @@ import 'vs/workbench/contrib/bulkEdit/browser/bulkEditService';
 import 'vs/workbench/contrib/bulkEdit/browser/preview/bulkEdit.contribution';
 
 // Search
-import 'vs/workbench/contrib/search/browser/search.contribution';
-import 'vs/workbench/contrib/search/browser/searchView';
+// import 'vs/workbench/contrib/search/browser/search.contribution';
+// import 'vs/workbench/contrib/search/browser/searchView';
 
 // Search Editor
-import 'vs/workbench/contrib/searchEditor/browser/searchEditor.contribution';
+// import 'vs/workbench/contrib/searchEditor/browser/searchEditor.contribution';
 
 // Sash
 import 'vs/workbench/contrib/sash/browser/sash.contribution';
 
 // SCM
-import 'vs/workbench/contrib/scm/browser/scm.contribution';
+// import 'vs/workbench/contrib/scm/browser/scm.contribution';
 
 // Debug
-import 'vs/workbench/contrib/debug/browser/debug.contribution';
-import 'vs/workbench/contrib/debug/browser/debugEditorContribution';
-import 'vs/workbench/contrib/debug/browser/breakpointEditorContribution';
-import 'vs/workbench/contrib/debug/browser/callStackEditorContribution';
-import 'vs/workbench/contrib/debug/browser/repl';
-import 'vs/workbench/contrib/debug/browser/debugViewlet';
+// import 'vs/workbench/contrib/debug/browser/debug.contribution';
+// import 'vs/workbench/contrib/debug/browser/debugEditorContribution';
+// import 'vs/workbench/contrib/debug/browser/breakpointEditorContribution';
+// import 'vs/workbench/contrib/debug/browser/callStackEditorContribution';
+// import 'vs/workbench/contrib/debug/browser/repl';
+// import 'vs/workbench/contrib/debug/browser/debugViewlet';
 
 // Markers
 import 'vs/workbench/contrib/markers/browser/markers.contribution';
@@ -266,8 +266,8 @@ import 'vs/workbench/contrib/customEditor/browser/customEditor.contribution';
 import 'vs/workbench/contrib/externalUriOpener/common/externalUriOpener.contribution';
 
 // Extensions Management
-import 'vs/workbench/contrib/extensions/browser/extensions.contribution';
-import 'vs/workbench/contrib/extensions/browser/extensionsViewlet';
+// import 'vs/workbench/contrib/extensions/browser/extensions.contribution';
+// import 'vs/workbench/contrib/extensions/browser/extensionsViewlet';
 
 // Output View
 import 'vs/workbench/contrib/output/common/outputChannelModelService';
@@ -287,8 +287,8 @@ import 'vs/workbench/contrib/relauncher/browser/relauncher.contribution';
 import 'vs/workbench/contrib/tasks/browser/task.contribution';
 
 // Remote
-import 'vs/workbench/contrib/remote/common/remote.contribution';
-import 'vs/workbench/contrib/remote/browser/remote.contribution';
+// import 'vs/workbench/contrib/remote/common/remote.contribution';
+// import 'vs/workbench/contrib/remote/browser/remote.contribution';
 
 // Emmet
 import 'vs/workbench/contrib/emmet/browser/emmet.contribution';
@@ -338,8 +338,8 @@ import 'vs/workbench/contrib/callHierarchy/browser/callHierarchy.contribution';
 import 'vs/workbench/contrib/typeHierarchy/browser/typeHierarchy.contribution';
 
 // Outline
-import 'vs/workbench/contrib/codeEditor/browser/outline/documentSymbolsOutline';
-import 'vs/workbench/contrib/outline/browser/outline.contribution';
+// import 'vs/workbench/contrib/codeEditor/browser/outline/documentSymbolsOutline';
+// import 'vs/workbench/contrib/outline/browser/outline.contribution';
 
 // Language Detection
 import 'vs/workbench/contrib/languageDetection/browser/languageDetection.contribution';
@@ -363,7 +363,7 @@ import 'vs/workbench/contrib/editSessions/browser/editSessions.contribution';
 import 'vs/workbench/contrib/codeActions/browser/codeActions.contribution';
 
 // Timeline
-import 'vs/workbench/contrib/timeline/browser/timeline.contribution';
+// import 'vs/workbench/contrib/timeline/browser/timeline.contribution';
 
 // Local History
 import 'vs/workbench/contrib/localHistory/browser/localHistory.contribution';
@@ -393,7 +393,7 @@ import 'vs/workbench/contrib/accessibility/browser/accessibility.contribution';
 import 'vs/workbench/contrib/share/browser/share.contribution';
 
 // Account Entitlements
-import 'vs/workbench/contrib/accountEntitlements/browser/accountsEntitlements.contribution';
+// import 'vs/workbench/contrib/accountEntitlements/browser/accountsEntitlements.contribution';
 
 // Synchronized Scrolling
 import 'vs/workbench/contrib/scrollLocking/browser/scrollLocking.contribution';

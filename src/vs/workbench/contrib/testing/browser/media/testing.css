@@ -252,8 +252,7 @@
 
 .test-output-peek-message-container .preview-text {
 	padding: 8px 12px 8px 20px;
-	line-height: normal;
-	white-space: normal;
+	height: calc(100% - 16px);
 }
 
 .test-output-peek-message-container .preview-text p:first-child {

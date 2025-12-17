@@ -801,14 +801,15 @@ export class GettingStartedPage extends EditorPane {
 
 		const header = $('.header', {},
 			$('h1.product-name.caption', {}, this.productService.nameLong),
-			$('p.subtitle.description', {}, localize({ key: 'gettingStarted.editingEvolved', comment: ['Shown as subtitle on the Welcome page.'] }, "Editing evolved"))
+			$('p.subtitle.description', {}, localize({ key: 'gettingStarted.editingEvolved', comment: ['Shown as subtitle on the Welcome page.'] }, "Transparent assessments. Better visibility."))
 		);
 
 		const leftColumn = $('.categories-column.categories-column-left', {},);
 		const rightColumn = $('.categories-column.categories-column-right', {},);
 
 		const startList = this.buildStartList();
-		const recentList = this.buildRecentlyOpenedList();
+		const { } = this.buildRecentlyOpenedList(); // was recentList, now make it null
+
 		const gettingStartedList = this.buildGettingStartedWalkthroughsList();
 
 		const footer = $('.footer', {},
@@ -832,12 +833,13 @@ export class GettingStartedPage extends EditorPane {
 
 		const layoutRecentList = () => {
 			if (this.container.classList.contains('noWalkthroughs')) {
-				recentList.setLimit(10);
+				//recentList.setLimit(10);
 				reset(leftColumn, startList.getDomElement());
-				reset(rightColumn, recentList.getDomElement());
+				//reset(rightColumn, recentList.getDomElement());
 			} else {
-				recentList.setLimit(5);
-				reset(leftColumn, startList.getDomElement(), recentList.getDomElement());
+				//recentList.setLimit(5);
+				//reset(leftColumn, startList.getDomElement(), recentList.getDomElement());
+				reset(leftColumn, startList.getDomElement());
 			}
 		};
 

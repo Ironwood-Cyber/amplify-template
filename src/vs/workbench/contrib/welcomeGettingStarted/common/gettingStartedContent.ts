@@ -55,35 +55,46 @@ type GettingStartedStartEntryContent = BuiltinGettingStartedStartEntry[];
 
 export const startEntries: GettingStartedStartEntryContent = [
 	{
-		id: 'welcome.showNewFileEntries',
-		title: localize('gettingStarted.newFile.title', "New File..."),
-		description: localize('gettingStarted.newFile.description', "Open a new untitled text file, notebook, or custom editor."),
-		icon: Codicon.newFile,
+		id: 'welcome.openAgentExplorer',
+		title: localize('gettingStarted.agentExplorer.title', "View agent sessions..."),
+		description: localize('gettingStarted.agentExplorer.description', "View the SSH agent sessions established during the assessment."),
+		icon: Codicon.goToFile,
 		content: {
 			type: 'startEntry',
-			command: 'command:welcome.showNewFileEntries',
+			command: 'command:welcome.openAgentExplorer',
 		}
 	},
 	{
-		id: 'topLevelOpenMac',
-		title: localize('gettingStarted.openMac.title', "Open..."),
-		description: localize('gettingStarted.openMac.description', "Open a file or folder to start working"),
-		icon: Codicon.folderOpened,
-		when: '!isWeb && isMac',
-		content: {
-			type: 'startEntry',
-			command: 'command:workbench.action.files.openFileFolder',
-		}
-	},
-	{
-		id: 'topLevelOpenFile',
-		title: localize('gettingStarted.openFile.title', "Open File..."),
-		description: localize('gettingStarted.openFile.description', "Open a file to start working"),
+		id: 'viewElements',
+		title: localize('gettingStarted.viewElements.title', "View found assets and elements..."),
+		description: localize('gettingStarted.viewElements.description', "View the assets and elements discovered."),
 		icon: Codicon.goToFile,
 		when: 'isWeb || !isMac',
 		content: {
 			type: 'startEntry',
-			command: 'command:workbench.action.files.openFile',
+			command: 'command:workbench.view.extension.exploreViewContainer',
+		}
+	},
+	{
+		id: 'viewFindings',
+		title: localize('gettingStarted.viewFindings.title', "View findings..."),
+		description: localize('gettingStarted.viewFindings.description', "View findings from the assessment."),
+		icon: Codicon.goToFile,
+		when: 'isWeb || !isMac',
+		content: {
+			type: 'startEntry',
+			command: 'command:workbench.view.extension.findingsViewContainer',
+		}
+	},
+	{
+		id: 'viewActions',
+		title: localize('gettingStarted.viewActions.title', "View assessment actions..."),
+		description: localize('gettingStarted.viewActions.description', "View the actions that were run against the assets found."),
+		icon: Codicon.goToFile,
+		when: 'isWeb || !isMac',
+		content: {
+			type: 'startEntry',
+			command: 'command:workbench.view.extension.actionsViewContainer',
 		}
 	},
 	{
@@ -109,28 +120,6 @@ export const startEntries: GettingStartedStartEntryContent = [
 		}
 	},
 	{
-		id: 'topLevelGitClone',
-		title: localize('gettingStarted.topLevelGitClone.title', "Clone Git Repository..."),
-		description: localize('gettingStarted.topLevelGitClone.description', "Clone a remote repository to a local folder"),
-		when: 'config.git.enabled && !git.missing',
-		icon: Codicon.sourceControl,
-		content: {
-			type: 'startEntry',
-			command: 'command:git.clone',
-		}
-	},
-	{
-		id: 'topLevelGitOpen',
-		title: localize('gettingStarted.topLevelGitOpen.title', "Open Repository..."),
-		description: localize('gettingStarted.topLevelGitOpen.description', "Connect to a remote repository or pull request to browse, search, edit, and commit"),
-		when: 'workspacePlatform == \'webworker\'',
-		icon: Codicon.sourceControl,
-		content: {
-			type: 'startEntry',
-			command: 'command:remoteHub.openRepository',
-		}
-	},
-	{
 		id: 'topLevelShowWalkthroughs',
 		title: localize('gettingStarted.topLevelShowWalkthroughs.title', "Open a Walkthrough..."),
 		description: localize('gettingStarted.topLevelShowWalkthroughs.description', "View a walkthrough on the editor or an extension"),
@@ -150,17 +139,6 @@ export const startEntries: GettingStartedStartEntryContent = [
 		content: {
 			type: 'startEntry',
 			command: 'command:workbench.action.remote.showMenu',
-		}
-	},
-	{
-		id: 'topLevelOpenTunnel',
-		title: localize('gettingStarted.topLevelOpenTunnel.title', "Open Tunnel..."),
-		description: localize('gettingStarted.topLevelOpenTunnel.description', "Connect to a remote machine through a Tunnel"),
-		when: 'isWeb && showRemoteStartEntryInWeb',
-		icon: Codicon.remote,
-		content: {
-			type: 'startEntry',
-			command: 'command:workbench.action.remote.showWebStartEntryActions',
 		}
 	},
 ];
@@ -196,15 +174,6 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 					when: 'workspacePlatform == \'webworker\'',
 					media: {
 						type: 'svg', altText: 'VS Code extension marketplace with featured language extensions', path: 'extensions-web.svg'
-					},
-				},
-				{
-					id: 'findLanguageExtensions',
-					title: localize('gettingStarted.findLanguageExts.title', "Rich support for all your languages"),
-					description: localize('gettingStarted.findLanguageExts.description.interpolated', "Code smarter with syntax highlighting, code completion, linting and debugging. While many languages are built-in, many more can be added as extensions.\n{0}", Button(localize('browseLangExts', "Browse Language Extensions"), 'command:workbench.extensions.action.showLanguageExtensions')),
-					when: 'workspacePlatform != \'webworker\'',
-					media: {
-						type: 'svg', altText: 'Language extensions', path: 'languages.svg'
 					},
 				},
 				{
@@ -270,8 +239,8 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 
 	{
 		id: 'SetupWeb',
-		title: localize('gettingStarted.setupWeb.title', "Get Started with VS Code for the Web"),
-		description: localize('gettingStarted.setupWeb.description', "Customize your editor, learn the basics, and start coding"),
+		title: localize('gettingStarted.setupWeb.title', "Welcome to the Enlight™ Amplify Environment"), // allow-any-unicode-next-line
+		description: localize('gettingStarted.setupWeb.description', "View risks around your assets, map attack paths, and interact with created agents all within one integrated penetration test environment."),
 		isFeatured: true,
 		icon: setupIcon,
 		when: 'isWeb',
@@ -290,66 +259,16 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 					media: { type: 'markdown', path: 'theme_picker', }
 				},
 				{
-					id: 'menuBarWeb',
-					title: localize('gettingStarted.menuBar.title', "Just the right amount of UI"),
-					description: localize('gettingStarted.menuBar.description.interpolated', "The full menu bar is available in the dropdown menu to make room for your code. Toggle its appearance for faster access. \n{0}", Button(localize('toggleMenuBar', "Toggle Menu Bar"), 'command:workbench.action.toggleMenuBar')),
-					when: 'isWeb',
+					id: 'reviewFindingsWeb',
+					title: localize('gettingStarted.setup.ReviewFindings.title', "Review Findings"),
+					description: localize('gettingStarted.setup.ReviewFindings.description.interpolated', "Let's gain some visibility into your attack surface.The best place to start is to see if there are any low hanging fruits that can be fixed/exploited.\n{0}\n", Button(localize('viewFindings', "Open Findings"), 'command:workbench.view.extension.findingsViewContainer')),
+					completionEvents: [
+						'onView:workbench.view.extension.findingsViewContainer'
+					],
 					media: {
-						type: 'svg', altText: 'Comparing menu dropdown with the visible menu bar.', path: 'menuBar.svg'
-					},
-				},
-				{
-					id: 'extensionsWebWeb',
-					title: localize('gettingStarted.extensions.title', "Code with extensions"),
-					description: localize('gettingStarted.extensionsWeb.description.interpolated', "Extensions are VS Code's power-ups. A growing number are becoming available in the web.\n{0}", Button(localize('browsePopularWeb', "Browse Popular Web Extensions"), 'command:workbench.extensions.action.showPopularExtensions')),
-					when: 'workspacePlatform == \'webworker\'',
-					media: {
-						type: 'svg', altText: 'VS Code extension marketplace with featured language extensions', path: 'extensions-web.svg'
-					},
-				},
-				{
-					id: 'findLanguageExtensionsWeb',
-					title: localize('gettingStarted.findLanguageExts.title', "Rich support for all your languages"),
-					description: localize('gettingStarted.findLanguageExts.description.interpolated', "Code smarter with syntax highlighting, code completion, linting and debugging. While many languages are built-in, many more can be added as extensions.\n{0}", Button(localize('browseLangExts', "Browse Language Extensions"), 'command:workbench.extensions.action.showLanguageExtensions')),
-					when: 'workspacePlatform != \'webworker\'',
-					media: {
-						type: 'svg', altText: 'Language extensions', path: 'languages.svg'
-					},
-				},
-				{
-					id: 'settingsSyncWeb',
-					title: localize('gettingStarted.settingsSync.title', "Sync settings across devices"),
-					description: localize('gettingStarted.settingsSync.description.interpolated', "Keep your essential customizations backed up and updated across all your devices.\n{0}", Button(localize('enableSync', "Backup and Sync Settings"), 'command:workbench.userDataSync.actions.turnOn')),
-					when: 'syncStatus != uninitialized',
-					completionEvents: ['onEvent:sync-enabled'],
-					media: {
-						type: 'svg', altText: 'The "Turn on Sync" entry in the settings gear menu.', path: 'settingsSync.svg'
-					},
-				},
-				{
-					id: 'commandPaletteTaskWeb',
-					title: localize('gettingStarted.commandPalette.title', "Unlock productivity with the Command Palette "),
-					description: localize('gettingStarted.commandPalette.description.interpolated', "Run commands without reaching for your mouse to accomplish any task in VS Code.\n{0}", Button(localize('commandPalette', "Open Command Palette"), 'command:workbench.action.showCommands')),
-					media: { type: 'svg', altText: 'Command Palette overlay for searching and executing commands.', path: 'commandPalette.svg' },
-				},
-				{
-					id: 'pickAFolderTask-WebWeb',
-					title: localize('gettingStarted.setup.OpenFolder.title', "Open up your code"),
-					description: localize('gettingStarted.setup.OpenFolderWeb.description.interpolated', "You're all set to start coding. You can open a local project or a remote repository to get your files into VS Code.\n{0}\n{1}", Button(localize('openFolder', "Open Folder"), 'command:workbench.action.addRootFolder'), Button(localize('openRepository', "Open Repository"), 'command:remoteHub.openRepository')),
-					when: 'workspaceFolderCount == 0',
-					media: {
-						type: 'svg', altText: 'Explorer view showing buttons for opening folder and cloning repository.', path: 'openFolder.svg'
+						type: 'svg', altText: 'Open findings page', path: ''
 					}
 				},
-				{
-					id: 'quickOpenWeb',
-					title: localize('gettingStarted.quickOpen.title', "Quickly navigate between your files"),
-					description: localize('gettingStarted.quickOpen.description.interpolated', "Navigate between files in an instant with one keystroke. Tip: Open multiple files by pressing the right arrow key.\n{0}", Button(localize('quickOpen', "Quick Open a File"), 'command:toSide:workbench.action.quickOpen')),
-					when: 'workspaceFolderCount != 0',
-					media: {
-						type: 'svg', altText: 'Go to file in quick search.', path: 'search.svg'
-					}
-				}
 			]
 		}
 	},
@@ -357,104 +276,52 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 	{
 		id: 'Beginner',
 		isFeatured: false,
-		title: localize('gettingStarted.beginner.title', "Learn the Fundamentals"),
+		title: localize('gettingStarted.beginner.title', "Amplify Fundamentals"),
 		icon: beginnerIcon,
-		description: localize('gettingStarted.beginner.description', "Get an overview of the most essential features"),
+		description: localize('gettingStarted.beginner.description', "Get an overview of important concepts"),
 		content: {
 			type: 'steps',
 			steps: [
 				{
-					id: 'extensions',
-					title: localize('gettingStarted.extensions.title', "Code with extensions"),
-					description: localize('gettingStarted.extensions.description.interpolated', "Extensions are VS Code's power-ups. They range from handy productivity hacks, expanding out-of-the-box features, to adding completely new capabilities.\n{0}", Button(localize('browsePopular', "Browse Popular Extensions"), 'command:workbench.extensions.action.showPopularExtensions')),
-					when: 'workspacePlatform != \'webworker\'',
+					id: 'agents',
+					title: localize('gettingStarted.agents.title', "Understanding agents"),
+					description: localize('gettingStarted.agents.description.interpolated', "Agent sessions are remote access sessions that Enlight was able to establish either through found credentials or exploited RCE.\n{0}", Button(localize('viewAgents', "Open Agents"), 'command:workbench.extensions.action.viewAgents')),
 					media: {
-						type: 'svg', altText: 'VS Code extension marketplace with featured language extensions', path: 'extensions.svg'
+						type: 'svg', altText: 'agent view', path: ''
 					},
 				},
 				{
-					id: 'terminal',
-					title: localize('gettingStarted.terminal.title', "Built-in terminal"),
-					description: localize('gettingStarted.terminal.description.interpolated', "Quickly run shell commands and monitor build output, right next to your code.\n{0}", Button(localize('showTerminal', "Open Terminal"), 'command:workbench.action.terminal.toggleTerminal')),
-					when: 'workspacePlatform != \'webworker\' && remoteName != codespaces && !terminalIsOpen',
+					id: 'assets',
+					title: localize('gettingStarted.assets.title', "Understanding assets and elements"),
+					description: localize('gettingStarted.assets.description.interpolated', "Explore the elements that Enlight found. Take a deeper dive into information found about a subnet, host, found hash, credential, ports, and more.\n{0}", Button(localize('viewElements', "Open element explorer"), 'command:workbench.view.extension.exploreViewContainer')),
 					media: {
-						type: 'svg', altText: 'Integrated terminal running a few npm commands', path: 'terminal.svg'
+						type: 'svg', altText: 'Integrated terminal running a few npm commands', path: ''
 					},
 				},
 				{
-					id: 'debugging',
-					title: localize('gettingStarted.debug.title', "Watch your code in action"),
-					description: localize('gettingStarted.debug.description.interpolated', "Accelerate your edit, build, test, and debug loop by setting up a launch configuration.\n{0}", Button(localize('runProject', "Run your Project"), 'command:workbench.action.debug.selectandstart')),
-					when: 'workspacePlatform != \'webworker\' && workspaceFolderCount != 0',
+					id: 'findings',
+					title: localize('gettingStarted.findings.title', "Understanding findings"),
+					description: localize('gettingStarted.findings.description.interpolated', "Findings are risks and vulnerabilities that Enlight found during your assessment. Filter by criticality to prioritize what's most important..\n{0}", Button(localize('viewFindings', "Open Findings"), 'command:workbench.view.extension.findingsViewContainer')),
 					media: {
-						type: 'svg', altText: 'Run and debug view.', path: 'debug.svg',
+						type: 'svg', altText: 'Integrated terminal running a few npm commands', path: ''
 					},
 				},
 				{
-					id: 'scmClone',
-					title: localize('gettingStarted.scm.title', "Track your code with Git"),
-					description: localize('gettingStarted.scmClone.description.interpolated', "Set up the built-in version control for your project to track your changes and collaborate with others.\n{0}", Button(localize('cloneRepo', "Clone Repository"), 'command:git.clone')),
-					when: 'config.git.enabled && !git.missing && workspaceFolderCount == 0',
-					media: {
-						type: 'svg', altText: 'Source Control view.', path: 'git.svg',
-					},
-				},
-				{
-					id: 'scmSetup',
-					title: localize('gettingStarted.scm.title', "Track your code with Git"),
-					description: localize('gettingStarted.scmSetup.description.interpolated', "Set up the built-in version control for your project to track your changes and collaborate with others.\n{0}", Button(localize('initRepo', "Initialize Git Repository"), 'command:git.init')),
-					when: 'config.git.enabled && !git.missing && workspaceFolderCount != 0 && gitOpenRepositoryCount == 0',
-					media: {
-						type: 'svg', altText: 'Source Control view.', path: 'git.svg',
-					},
-				},
-				{
-					id: 'scm',
-					title: localize('gettingStarted.scm.title', "Track your code with Git"),
-					description: localize('gettingStarted.scm.description.interpolated', "No more looking up Git commands! Git and GitHub workflows are seamlessly integrated.\n{0}", Button(localize('openSCM', "Open Source Control"), 'command:workbench.view.scm')),
-					when: 'config.git.enabled && !git.missing && workspaceFolderCount != 0 && gitOpenRepositoryCount != 0 && activeViewlet != \'workbench.view.scm\'',
-					media: {
-						type: 'svg', altText: 'Source Control view.', path: 'git.svg',
-					},
-				},
-				{
-					id: 'installGit',
-					title: localize('gettingStarted.installGit.title', "Install Git"),
-					description: localize({ key: 'gettingStarted.installGit.description.interpolated', comment: ['The placeholders are command link items should not be translated'] }, "Install Git to track changes in your projects.\n{0}\n{1}Reload window{2} after installation to complete Git setup.", Button(localize('installGit', "Install Git"), 'https://aka.ms/vscode-install-git'), '[', '](command:workbench.action.reloadWindow)'),
-					when: 'git.missing',
-					media: {
-						type: 'svg', altText: 'Install Git.', path: 'git.svg',
-					},
-					completionEvents: [
-						'onContext:git.state == initialized'
-					]
-				},
+					id: 'actions',
+					title: localize('gettingStarted.actions.title', "Undertanding assessment actions"),
+					description: localize('gettingStarted.actions.description.interpolated', "Take a look at what was run on what element, from kerberoasting to vulnerability checks.\n{0}", Button(localize('viewActions', "Open actions"), 'command:workbench.view.extension.actionsViewContainer')),
 
-				{
-					id: 'tasks',
-					title: localize('gettingStarted.tasks.title', "Automate your project tasks"),
-					when: 'workspaceFolderCount != 0 && workspacePlatform != \'webworker\'',
-					description: localize('gettingStarted.tasks.description.interpolated', "Create tasks for your common workflows and enjoy the integrated experience of running scripts and automatically checking results.\n{0}", Button(localize('runTasks', "Run Auto-detected Tasks"), 'command:workbench.action.tasks.runTask')),
 					media: {
-						type: 'svg', altText: 'Task runner.', path: 'runTask.svg',
+						type: 'svg', altText: 'Run and debug view.', path: '',
 					},
 				},
 				{
-					id: 'shortcuts',
-					title: localize('gettingStarted.shortcuts.title', "Customize your shortcuts"),
-					description: localize('gettingStarted.shortcuts.description.interpolated', "Once you have discovered your favorite commands, create custom keyboard shortcuts for instant access.\n{0}", Button(localize('keyboardShortcuts', "Keyboard Shortcuts"), 'command:toSide:workbench.action.openGlobalKeybindings')),
+					id: 'approvals',
+					title: localize('gettingStarted.approvals.title', "Understanding approvals"),
+					description: localize('gettingStarted.approvals.description.interpolated', "Sometimes Enlight will find an exploit that could cause disruption in the system. See what actions that Enlight need's human in the loop approval before continuing. (COMING SOON) \n{0}", Button(localize('openApprovals', "Open Approvals"), 'command:approvalsView.showApprovals')),
 					media: {
-						type: 'svg', altText: 'Interactive shortcuts.', path: 'shortcuts.svg',
+						type: 'svg', altText: 'Interactive shortcuts.', path: '',
 					}
-				},
-				{
-					id: 'workspaceTrust',
-					title: localize('gettingStarted.workspaceTrust.title', "Safely browse and edit code"),
-					description: localize('gettingStarted.workspaceTrust.description.interpolated', "{0} lets you decide whether your project folders should **allow or restrict** automatic code execution __(required for extensions, debugging, etc)__.\nOpening a file/folder will prompt to grant trust. You can always {1} later.", Button(localize('workspaceTrust', "Workspace Trust"), 'https://github.com/microsoft/vscode-docs/blob/workspaceTrust/docs/editor/workspace-trust.md'), Button(localize('enableTrust', "enable trust"), 'command:toSide:workbench.action.manageTrustedDomain')),
-					when: 'workspacePlatform != \'webworker\' && !isWorkspaceTrusted && workspaceFolderCount == 0',
-					media: {
-						type: 'svg', altText: 'Workspace Trust editor in Restricted mode and a primary button for switching to Trusted mode.', path: 'workspaceTrust.svg'
-					},
 				},
 			]
 		}
