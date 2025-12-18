@@ -287,8 +287,8 @@ import 'vs/workbench/contrib/relauncher/browser/relauncher.contribution';
 import 'vs/workbench/contrib/tasks/browser/task.contribution';
 
 // Remote
-// import 'vs/workbench/contrib/remote/common/remote.contribution';
-// import 'vs/workbench/contrib/remote/browser/remote.contribution';
+import 'vs/workbench/contrib/remote/common/remote.contribution';
+import 'vs/workbench/contrib/remote/browser/remote.contribution';
 
 // Emmet
 import 'vs/workbench/contrib/emmet/browser/emmet.contribution';
@@ -338,8 +338,8 @@ import 'vs/workbench/contrib/callHierarchy/browser/callHierarchy.contribution';
 import 'vs/workbench/contrib/typeHierarchy/browser/typeHierarchy.contribution';
 
 // Outline
-// import 'vs/workbench/contrib/codeEditor/browser/outline/documentSymbolsOutline';
-// import 'vs/workbench/contrib/outline/browser/outline.contribution';
+import 'vs/workbench/contrib/codeEditor/browser/outline/documentSymbolsOutline';
+import 'vs/workbench/contrib/outline/browser/outline.contribution';
 
 // Language Detection
 import 'vs/workbench/contrib/languageDetection/browser/languageDetection.contribution';
@@ -363,7 +363,7 @@ import 'vs/workbench/contrib/editSessions/browser/editSessions.contribution';
 import 'vs/workbench/contrib/codeActions/browser/codeActions.contribution';
 
 // Timeline
-// import 'vs/workbench/contrib/timeline/browser/timeline.contribution';
+import 'vs/workbench/contrib/timeline/browser/timeline.contribution';
 
 // Local History
 import 'vs/workbench/contrib/localHistory/browser/localHistory.contribution';
@@ -393,7 +393,7 @@ import 'vs/workbench/contrib/accessibility/browser/accessibility.contribution';
 import 'vs/workbench/contrib/share/browser/share.contribution';
 
 // Account Entitlements
-// import 'vs/workbench/contrib/accountEntitlements/browser/accountsEntitlements.contribution';
+import 'vs/workbench/contrib/accountEntitlements/browser/accountsEntitlements.contribution';
 
 // Synchronized Scrolling
 import 'vs/workbench/contrib/scrollLocking/browser/scrollLocking.contribution';
