@@ -266,8 +266,8 @@ import 'vs/workbench/contrib/customEditor/browser/customEditor.contribution';
 import 'vs/workbench/contrib/externalUriOpener/common/externalUriOpener.contribution';
 
 // Extensions Management
-// import 'vs/workbench/contrib/extensions/browser/extensions.contribution';
-// import 'vs/workbench/contrib/extensions/browser/extensionsViewlet';
+import 'vs/workbench/contrib/extensions/browser/extensions.contribution';
+import 'vs/workbench/contrib/extensions/browser/extensionsViewlet';
 
 // Output View
 import 'vs/workbench/contrib/output/common/outputChannelModelService';
