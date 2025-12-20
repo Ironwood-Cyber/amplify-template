@@ -167,7 +167,7 @@ registerSingleton(IOpenerService, OpenerService, InstantiationType.Delayed);
 //#region --- workbench contributions
 
 // Telemetry
-// import 'vs/workbench/contrib/telemetry/browser/telemetry.contribution';
+import 'vs/workbench/contrib/telemetry/browser/telemetry.contribution';
 
 // Preferences
 import 'vs/workbench/contrib/preferences/browser/preferences.contribution';
@@ -215,17 +215,17 @@ import 'vs/workbench/contrib/bulkEdit/browser/bulkEditService';
 import 'vs/workbench/contrib/bulkEdit/browser/preview/bulkEdit.contribution';
 
 // Search
-// import 'vs/workbench/contrib/search/browser/search.contribution';
-// import 'vs/workbench/contrib/search/browser/searchView';
+import 'vs/workbench/contrib/search/browser/search.contribution';
+import 'vs/workbench/contrib/search/browser/searchView';
 
 // Search Editor
-// import 'vs/workbench/contrib/searchEditor/browser/searchEditor.contribution';
+import 'vs/workbench/contrib/searchEditor/browser/searchEditor.contribution';
 
 // Sash
 import 'vs/workbench/contrib/sash/browser/sash.contribution';
 
 // SCM
-// import 'vs/workbench/contrib/scm/browser/scm.contribution';
+import 'vs/workbench/contrib/scm/browser/scm.contribution';
 
 // Debug
 import 'vs/workbench/contrib/debug/browser/debug.contribution';
