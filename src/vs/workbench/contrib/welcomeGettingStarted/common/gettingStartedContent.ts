@@ -109,17 +109,6 @@ export const startEntries: GettingStartedStartEntryContent = [
 		}
 	},
 	{
-		id: 'topLevelOpenFolderWeb',
-		title: localize('gettingStarted.openFolder.title', "Open Folder..."),
-		description: localize('gettingStarted.openFolder.description', "Open a folder to start working"),
-		icon: Codicon.folderOpened,
-		when: '!openFolderWorkspaceSupport && workbenchState == \'workspace\'',
-		content: {
-			type: 'startEntry',
-			command: 'command:workbench.action.files.openFolderViaWorkspace',
-		}
-	},
-	{
 		id: 'topLevelShowWalkthroughs',
 		title: localize('gettingStarted.topLevelShowWalkthroughs.title', "Open a Walkthrough..."),
 		description: localize('gettingStarted.topLevelShowWalkthroughs.description', "View a walkthrough on the editor or an extension"),
