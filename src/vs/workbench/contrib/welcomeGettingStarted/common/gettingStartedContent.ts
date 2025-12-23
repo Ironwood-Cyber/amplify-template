@@ -61,7 +61,7 @@ export const startEntries: GettingStartedStartEntryContent = [
 		icon: Codicon.goToFile,
 		content: {
 			type: 'startEntry',
-			command: 'command:welcome.openAgentExplorer',
+			command: 'command:workbench.view.explorer',
 		}
 	},
 	{
@@ -255,7 +255,7 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 						'onView:workbench.view.extension.findingsViewContainer'
 					],
 					media: {
-						type: 'svg', altText: 'Open findings page', path: ''
+						type: 'svg', altText: 'Open findings page', path: 'Fire.svg'
 					}
 				},
 			]
@@ -274,44 +274,55 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 				{
 					id: 'agents',
 					title: localize('gettingStarted.agents.title', "Understanding agents"),
-					description: localize('gettingStarted.agents.description.interpolated', "Agent sessions are remote access sessions that Enlight was able to establish either through found credentials or exploited RCE.\n{0}", Button(localize('viewAgents', "Open Agents"), 'command:workbench.extensions.action.viewAgents')),
+					description: localize('gettingStarted.agents.description.interpolated', "Agent sessions are remote access sessions that Enlight was able to establish either through found credentials or exploited RCE.\n{0}", Button(localize('viewAgents', "Open Agents"), 'command:workbench.view.explorer')),
+					completionEvents: [
+						'onCommand:workbench.view.explorer'
+					],
 					media: {
-						type: 'svg', altText: 'agent view', path: ''
+						type: 'image', altText: 'agent view', path: 'agents.png'
 					},
 				},
 				{
 					id: 'assets',
 					title: localize('gettingStarted.assets.title', "Understanding assets and elements"),
 					description: localize('gettingStarted.assets.description.interpolated', "Explore the elements that Enlight found. Take a deeper dive into information found about a subnet, host, found hash, credential, ports, and more.\n{0}", Button(localize('viewElements', "Open element explorer"), 'command:workbench.view.extension.exploreViewContainer')),
+					completionEvents: [
+						'onCommand:workbench.view.extension.exploreViewContainer'
+					],
 					media: {
-						type: 'svg', altText: 'Integrated terminal running a few npm commands', path: ''
+						type: 'image', altText: 'Asset icon', path: 'assets.png'
 					},
 				},
 				{
 					id: 'findings',
 					title: localize('gettingStarted.findings.title', "Understanding findings"),
-					description: localize('gettingStarted.findings.description.interpolated', "Findings are risks and vulnerabilities that Enlight found during your assessment. Filter by criticality to prioritize what's most important..\n{0}", Button(localize('viewFindings', "Open Findings"), 'command:workbench.view.extension.findingsViewContainer')),
+					description: localize('gettingStarted.findings.description.interpolated', "Findings are risks and vulnerabilities that Enlight found during your assessment. Filter by criticality to prioritize what's most important.\n{0}", Button(localize('viewFindings', "Open Findings"), 'command:workbench.view.extension.findingsViewContainer')),
+					completionEvents: [
+						'onCommand:workbench.view.extension.findingsViewContainer'
+					],
 					media: {
-						type: 'svg', altText: 'Integrated terminal running a few npm commands', path: ''
+						type: 'image', altText: 'Findings icon', path: 'findings.png'
 					},
 				},
 				{
 					id: 'actions',
 					title: localize('gettingStarted.actions.title', "Undertanding assessment actions"),
 					description: localize('gettingStarted.actions.description.interpolated', "Take a look at what was run on what element, from kerberoasting to vulnerability checks.\n{0}", Button(localize('viewActions', "Open actions"), 'command:workbench.view.extension.actionsViewContainer')),
-
+					completionEvents: [
+						'onCommand:workbench.view.extension.actionsViewContainer'
+					],
 					media: {
-						type: 'svg', altText: 'Run and debug view.', path: '',
+						type: 'image', altText: 'Attacks on your network.', path: 'pt.png',
 					},
 				},
-				{
-					id: 'approvals',
-					title: localize('gettingStarted.approvals.title', "Understanding approvals"),
-					description: localize('gettingStarted.approvals.description.interpolated', "Sometimes Enlight will find an exploit that could cause disruption in the system. See what actions that Enlight need's human in the loop approval before continuing. (COMING SOON) \n{0}", Button(localize('openApprovals', "Open Approvals"), 'command:approvalsView.showApprovals')),
-					media: {
-						type: 'svg', altText: 'Interactive shortcuts.', path: '',
-					}
-				},
+				// {
+				// 	id: 'approvals',
+				// 	title: localize('gettingStarted.approvals.title', "Understanding approvals"),
+				// 	description: localize('gettingStarted.approvals.description.interpolated', "Sometimes Enlight will find an exploit that could cause disruption in the system. See what actions that Enlight need's human in the loop approval before continuing. (COMING SOON) \n{0}", Button(localize('openApprovals', "Open Approvals"), 'command:approvalsView.showApprovals')),
+				// 	media: {
+				// 		type: 'svg', altText: 'Interactive shortcuts.', path: '',
+				// 	}
+				// },
 			]
 		}
 	},
